@@ -1,0 +1,50 @@
+{
+    "name": "xbigdaddyx/accuracy",
+    "description": ":package_description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Faisal Yusuf",
+            "email": "yussupcazzanova97@gmail.com",
+            "homepage": "https://github.com/xbigdaddyx/"
+        }
+    ],
+    "homepage": "https://github.com/xbigdaddyx/accuracy",
+    "keywords": [
+        "Laravel",
+        "Accuracy"
+    ],
+    "require": {
+        "spatie/laravel-medialibrary": "^11.0.0",
+        "spatie/laravel-pdf": "^1.0.0",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.15.0",
+        "spatie/laravel-permission": "^6.1",
+        "illuminate/contracts": "^10.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^7.9",
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xbigdaddyx\\Accuracy\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Xbigdaddyx\\Accuracy\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Xbigdaddyx\\Accuracy\\AccuracyServiceProvider"
+            ],
+            "aliases": {
+                "Accuracy": "Xbigdaddyx\\Accuracy\\Facades\\Accuracy"
+            }
+        }
+    }
+}
