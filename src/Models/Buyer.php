@@ -35,13 +35,15 @@ class Buyer extends Model
 
     //protected $auditTimestamps = true;
 
-    protected static $blameable = [
-        'guard' => null,
-        'user' => User::class,
-        'createdBy' => 'created_by',
-        'updatedBy' => 'updated_by',
-    ];
-
+    public function blameable()
+    {
+        return [
+            'guard' => null,
+            'user' => config('accuracy.models.user'),
+            'createdBy' => 'created_by',
+            'updatedBy' => 'updated_by',
+        ];
+    }
     // protected $auditEvents = [
     //     'deleted',
     //     'restored',

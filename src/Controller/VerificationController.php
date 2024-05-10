@@ -2,8 +2,8 @@
 
 namespace Xbigdaddyx\Accuracy\Controller;
 
-use Domain\Accuracies\Models\CartonBox;
-use Domain\Accuracies\Models\Polybag;
+use  Xbigdaddyx\Accuracy\Models\CartonBox;
+use  Xbigdaddyx\Accuracy\Models\Polybag;
 use Domain\Users\Models\User;
 use Filament\Facades\Filament;
 use Illuminate\Http\Request;

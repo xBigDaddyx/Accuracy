@@ -3,8 +3,8 @@
 namespace Xbigdaddyx\Accuracy\Livewire\components;
 
 use Livewire\Component;
-use Domain\Accuracies\Models\CartonBox;
-use Domain\Accuracies\Models\Tag;
+use  Xbigdaddyx\Accuracy\Models\CartonBox;
+use  Xbigdaddyx\Accuracy\Models\Tag;
 
 class AccuracyPolybagTable extends Component
 {

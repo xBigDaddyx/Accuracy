@@ -2,7 +2,7 @@
 
 namespace Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\PackingListResource\Pages;
 
-use Domain\Accuracies\Models\PackingList;
+use  Xbigdaddyx\Accuracy\Models\PackingList;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ViewRecord;
 

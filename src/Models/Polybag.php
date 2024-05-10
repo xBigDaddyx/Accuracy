@@ -35,7 +35,15 @@ class Polybag extends Model
     // protected $primaryKey = 'id';
 
     // protected $connection = 'teresa_box';
-
+    public function blameable()
+    {
+        return [
+            'guard' => null,
+            'user' => config('accuracy.models.user'),
+            'createdBy' => 'created_by',
+            'updatedBy' => 'updated_by',
+        ];
+    }
     protected $guarded = [];
 
     // protected static $blameable = [

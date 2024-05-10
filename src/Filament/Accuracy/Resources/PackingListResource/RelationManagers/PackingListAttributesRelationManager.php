@@ -2,7 +2,7 @@
 
 namespace Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\PackingListResource\RelationManagers;
 
-use Domain\Accuracies\Models\CartonBoxAttribute;
+use  Xbigdaddyx\Accuracy\Models\CartonBoxAttribute;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Notifications\Notification;

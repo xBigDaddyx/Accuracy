@@ -2,8 +2,8 @@
 
 namespace Xbigdaddyx\Accuracy\Livewire;
 
-use Domain\Accuracies\Models\CartonBox;
-use Domain\Accuracies\Models\PackingList;
+use  Xbigdaddyx\Accuracy\Models\CartonBox;
+use  Xbigdaddyx\Accuracy\Models\PackingList;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;

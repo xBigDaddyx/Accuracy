@@ -2,8 +2,8 @@
 
 namespace Xbigdaddyx\Accuracy\Livewire\components;
 
-use Domain\Accuracies\Models\CartonBox;
-use Domain\Accuracies\Models\Tag;
+use  Xbigdaddyx\Accuracy\Models\CartonBox;
+use  Xbigdaddyx\Accuracy\Models\Tag;
 use Livewire\Component;
 //use Teresa\CartonBoxGuard\Models\CartonBox;
 use Livewire\Attributes\Reactive;

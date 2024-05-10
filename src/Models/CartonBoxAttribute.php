@@ -22,7 +22,15 @@ class CartonBoxAttribute extends Model
     // protected $primaryKey = 'id';
 
     protected $guarded = [];
-
+    public function blameable()
+    {
+        return [
+            'guard' => null,
+            'user' => config('accuracy.models.user'),
+            'createdBy' => 'created_by',
+            'updatedBy' => 'updated_by',
+        ];
+    }
     // protected static $blameable = [
     //     'guard' => null,
     //     'user' => config('accuracy.models.user'),

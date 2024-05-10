@@ -4,7 +4,7 @@ namespace Xbigdaddyx\Accuracy\Filament\Accuracy\Widgets;
 
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
-use Domain\Accuracies\Models\Buyer;
+use  Xbigdaddyx\Accuracy\Models\Buyer;
 use Domain\Accuracies\Repositories\CartonBoxRepository;
 use Filament\Facades\Filament;
 use Filament\Forms\Components\DatePicker;

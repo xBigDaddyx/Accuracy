@@ -4,7 +4,7 @@ namespace Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\CartonBoxResource\Page
 
 use AlperenErsoy\FilamentExport\Actions\FilamentExportHeaderAction;
 use Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\CartonBoxResource;
-use Domain\Accuracies\Models\CartonBox;
+use  Xbigdaddyx\Accuracy\Models\CartonBox;
 use Filament\Actions;
 use Filament\Actions\ActionGroup;
 use Filament\Resources\Components\Tab;

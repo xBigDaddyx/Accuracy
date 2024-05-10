@@ -11,9 +11,9 @@ use Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\CartonBoxResource\RelationMa
 use Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\CartonBoxResource\RelationManagers\PolybagsRelationManager;
 use Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\CartonBoxResource\RelationManagers\PolybagTagsRelationManager;
 use Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\PackingListResource\RelationManagers\CartonBoxesRelationManager;
-use Domain\Accuracies\Models\Buyer;
-use Domain\Accuracies\Models\CartonBox;
-use Domain\Accuracies\Models\PackingList;
+use Xbigdaddyx\Accuracy\Models\Buyer;
+use Xbigdaddyx\Accuracy\Models\CartonBox;
+use Xbigdaddyx\Accuracy\Models\PackingList;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -157,6 +157,9 @@ class CartonBoxResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Created')
                     ->dateTime(),
+                Tables\Columns\TextColumn::make('createdBy.name')
+                    ->toggleable(isToggledHiddenByDefault: true)
+                    ->label('Created By'),
                 Tables\Columns\TextColumn::make('completed_at')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->label('Completed At')

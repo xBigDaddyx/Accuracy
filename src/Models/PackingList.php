@@ -28,7 +28,15 @@ class PackingList extends Model
     //     'id', 'buyer_id', 'po', 'style_no', 'contract_no', 'batch', 'description', 'is_ratio', '',
     // ];
 
-
+    public function blameable()
+    {
+        return [
+            'guard' => null,
+            'user' => config('accuracy.models.user'),
+            'createdBy' => 'created_by',
+            'updatedBy' => 'updated_by',
+        ];
+    }
 
 
     protected $guarded = [];

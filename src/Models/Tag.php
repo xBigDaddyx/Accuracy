@@ -8,15 +8,25 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
 use Teresa\CartonBoxGuard\Traits\HasStringId;
+use RichanFongdasen\EloquentBlameable\BlameableTrait;
 
 class Tag extends Model
 {
     use SoftDeletes;
+    use BlameableTrait;
     // use HasStringId;
     // protected $keyType = 'string';
 
     protected $primaryKey = 'id';
-
+    public function blameable()
+    {
+        return [
+            'guard' => null,
+            'user' => config('accuracy.models.user'),
+            'createdBy' => 'created_by',
+            'updatedBy' => 'updated_by',
+        ];
+    }
     protected $guarded = [];
     // public function prefixable(): array
     // {

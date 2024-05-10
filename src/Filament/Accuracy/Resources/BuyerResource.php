@@ -5,7 +5,7 @@ namespace Xbigdaddyx\Accuracy\Filament\Accuracy\Resources;
 use Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\BuyerResource\Pages;
 use Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\BuyerResource\RelationManagers;
 use Xbigdaddyx\Accuracy\Filament\Accuracy\Resources\BuyerResource\RelationManagers\PackingListRelationManager;
-use Domain\Accuracies\Models\Buyer;
+use  Xbigdaddyx\Accuracy\Models\Buyer;
 use Filament\Actions\DeleteAction;
 use Filament\Forms;
 
