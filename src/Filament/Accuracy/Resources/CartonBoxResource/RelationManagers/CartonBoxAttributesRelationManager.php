@@ -17,7 +17,7 @@ use Livewire\Livewire;
 
 class CartonBoxAttributesRelationManager extends RelationManager
 {
-    protected static string $relationship = 'cartonBoxAttributes';
+    protected static string $relationship = 'attributes';
     protected static ?string $modelLabel = 'Attributes';
     protected static ?string $title = 'Attributes';
     public function form(Form $form): Form
@@ -88,9 +88,9 @@ class CartonBoxAttributesRelationManager extends RelationManager
                     ->label('New Attribute')
                     ->hidden(function (RelationManager $livewire) {
                         if ($livewire->ownerRecord->type === 'SOLID') {
-                            if ($livewire->ownerRecord->cartonBoxAttributes()->exists()) {
+                            if ($livewire->ownerRecord->attributes()->exists()) {
 
-                                if ($livewire->ownerRecord->cartonBoxAttributes->count() == 1) {
+                                if ($livewire->ownerRecord->attributes->count() == 1) {
                                     return true;
                                 }
                             }
@@ -98,12 +98,12 @@ class CartonBoxAttributesRelationManager extends RelationManager
                         return false;
                     }),
 
-                //->visible(fn (RelationManager $livewire): bool => auth()->user()->can('carton-boxes-attributes.create') && $livewire->ownerRecord->type === 'MIX' && $livewire->ownerRecord->cartonBoxAttributes->count() < $livewire->ownerRecord->quantity),
+                //->visible(fn (RelationManager $livewire): bool => auth()->user()->can('carton-boxes-attributes.create') && $livewire->ownerRecord->type === 'MIX' && $livewire->ownerRecord->attributes->count() < $livewire->ownerRecord->quantity),
                 Tables\Actions\AssociateAction::make()
                     ->visible(function (RelationManager $livewire) {
                         if (auth()->user()->can('carton-boxes-attributes.associate')) {
                             if ($livewire->ownerRecord->type === 'MIX') {
-                                if ($livewire->ownerRecord->cartonBoxAttributes->count() < $livewire->ownerRecord->quantity) {
+                                if ($livewire->ownerRecord->attributes->count() < $livewire->ownerRecord->quantity) {
                                     return true;
                                 }
                             } else if ($livewire->ownerRecord->type === 'RATIO') {

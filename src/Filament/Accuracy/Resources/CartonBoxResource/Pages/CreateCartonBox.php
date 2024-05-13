@@ -9,10 +9,12 @@ use Filament\Resources\Pages\CreateRecord;
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Illuminate\Database\Eloquent\Model;
 use Filament\Notifications\Notification;
 use Filament\Notifications\Actions\Action;
 use Illuminate\Contracts\Database\Eloquent\Builder;
+use Filament\Forms\Components\Repeater;
 
 class CreateCartonBox extends CreateRecord
 {
@@ -68,20 +70,63 @@ class CreateCartonBox extends CreateRecord
                         ])
 
                 ]),
-            Forms\Components\Wizard\Step::make('Element')
-                ->description('Add information element for this carton box.')
+            Forms\Components\Wizard\Step::make('Attributes')
+                ->description('Add information attribute for this carton box.')
                 ->schema([
-                    Grid::make(2)
+                    Repeater::make('attributes')
+                        ->addable(false)
+                        ->deletable(false)
+                        ->relationship()
+                        ->grid(2)
+                        ->columns(2)
                         ->schema([
                             Forms\Components\TextInput::make('size')
-                                ->hidden(fn (Get $get): bool => $get('type') === 'RATIO')
-                                ->label('Size'),
-                            Forms\Components\TextInput::make('color')
-                                ->hidden(fn (Get $get): bool => $get('type') === 'RATIO')
-                                ->label('Color'),
+                                ->helperText('Should be the size of attribute')
+                                ->hint('Size Attribute')
+                                ->hintIcon('tabler-ruler-measure')
+                                ->hintColor('primary'),
+                            Forms\Components\TextInput::make('tag')
+                                ->live()
+                                ->afterStateUpdated(function (?string $state, ?string $old, Set $set) {
+                                    if (str_contains($state, 'LPN')) {
 
-                        ])
-                ])->hidden(fn (Get $get): bool => $get('type') === 'RATIO'),
+                                        $explode = explode('&', $state ?? '');
+                                        $result = str_replace('item_number=', '', $explode[1]);
+                                        return $set('tag', $result);
+                                    }
+                                })
+                                ->helperText('Should be the tag of attribute')
+                                ->hint('Tag Attribute')
+                                ->hintIcon('tabler-tag')
+                                ->hintColor('primary'),
+                            Forms\Components\TextInput::make('color')
+                                ->helperText('Should be the name of attribute')
+                                ->hint('Color Attribute')
+                                ->hintIcon('tabler-color-swatch')
+                                ->hintColor('primary'),
+                            Forms\Components\TextInput::make('quantity')
+                                ->numeric()
+                                ->helperText('Should be the quantities of attribute')
+                                ->hint('Quantity Attribute')
+                                ->hintIcon('tabler-calculator')
+                                ->hintColor('primary'),
+                        ]),
+
+                ])->hidden(fn (Get $get): bool => $get('type') === 'RATIO' || $get('type') === 'MIX'),
+            // Forms\Components\Wizard\Step::make('Element')
+            //     ->description('Add information attribute for this carton box.')
+            //     ->schema([
+            //         Grid::make(2)
+            //             ->schema([
+            //                 Forms\Components\TextInput::make('size')
+            //                     ->hidden(fn (Get $get): bool => $get('type') === 'RATIO')
+            //                     ->label('Size'),
+            //                 Forms\Components\TextInput::make('color')
+            //                     ->hidden(fn (Get $get): bool => $get('type') === 'RATIO')
+            //                     ->label('Color'),
+
+            //             ])
+            //     ])->hidden(fn (Get $get): bool => $get('type') === 'RATIO'),
             Forms\Components\Wizard\Step::make('Identity and Quantity')
                 ->description('Add information about identity and quantity for this carton box.')
                 ->schema([
